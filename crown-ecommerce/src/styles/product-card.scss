@@ -3,11 +3,14 @@
   padding: 7rem;
 
   &__inner-container {
-    background: hsl(0 0 100% / .8);
+    background: hsl(0 0% 100% / .8);
     padding: 1.5rem;
 
     text-align: center;
     text-transform: uppercase;
+    // max-width: 10rem;
+    display: flex;
+    flex-direction: column;
   }
 
   &__title {
