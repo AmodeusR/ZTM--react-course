@@ -1,9 +1,9 @@
-.homepage {
+.directories {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   place-content: center;
   justify-content: center;
-  min-height: 100vh;
+  margin-block: 5rem;
   gap: 1rem;
   margin-inline: 4rem;
 }

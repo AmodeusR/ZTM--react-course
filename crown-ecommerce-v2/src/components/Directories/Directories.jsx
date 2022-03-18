@@ -2,7 +2,7 @@ import React from "react";
 import { ProductCard } from "/src/components";
 import "./directories.scss";
 
-const Homepage = () => {
+const Directories = () => {
   const categories = [
     {
       id: 1,
@@ -32,7 +32,7 @@ const Homepage = () => {
   ];
 
   return (
-    <main className="homepage">
+    <main className="directories">
       {categories.map(({ id, title, imageUrl }) => (
         <ProductCard
           key={id}
@@ -45,4 +45,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Directories;
