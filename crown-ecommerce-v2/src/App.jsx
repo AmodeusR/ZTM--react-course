@@ -1,5 +1,4 @@
-import ProductCard from "./components/ProductCard";
-import Homepage from "./components/Homepage";
+import { Homepage } from "./components";
 
 function App() {
 

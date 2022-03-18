@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: #3334;
+  padding: 7rem;
+  border: 2px solid #333;
+  overflow: hidden;
+  
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform 1s ease;
+    
+  }
+  
+  &__inner-container {
+    min-width: 10rem;
+    background: hsl(0 0% 100% / .8);
+    padding: 1.5rem;
+    
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid #333;
+  }
+
+  &__title {
+    margin-block: 0 1.5rem;
+    line-height: 1;
+  }
+
+  &:hover {
+    cursor: pointer;
+    
+    & .card__background {
+      transform: scale(1.1)!important;
+    }
+  }
+
+}
