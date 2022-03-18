@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductCard } from "/src/components";
-import "./homepage.scss";
+import "./directories.scss";
 
 const Homepage = () => {
   const categories = [

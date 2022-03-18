@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__list {
+    font-size: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+
+    &-item {
+      position: relative; 
+    }
+
+    &-link {
+      text-decoration: none;
+      color: #334;
+      transition: color 150ms ease-out;
+      padding: .4rem;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        border-radius: .1rem;
+        left: 0;
+        right: 0;
+        top: 93%;
+        bottom: 0;
+
+        background: #334;
+        transition: transform .4s ease;
+        transform: scaleX(0);
+        transform-origin: top right;
+      }
+      
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: top left;
+      }
+    }
+  }
+
+}
