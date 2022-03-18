@@ -23,8 +23,8 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="navbar__list-item">
-              <Link className="navbar__list-link" to="">
-                Contact
+              <Link className="navbar__list-link" to="/sign-page">
+                Sign In
               </Link>
             </li>
           </ul>
