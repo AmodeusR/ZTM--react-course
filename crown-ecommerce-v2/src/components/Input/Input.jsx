@@ -1,5 +1,6 @@
 import React from "react";
 import "./input.scss";
+import { v4 as uuidv4 } from "uuid";
 
 const Input = ({ type, title, required = false, className, name, onChange, value }) => {
 
@@ -8,13 +9,14 @@ const Input = ({ type, title, required = false, className, name, onChange, value
   }
 
   title = title.toLowerCase();
-  const titleId = title.replaceAll(" ", "");
+  const titleId = title.replaceAll(" ", "") + uuidv4();
+
   return (
-    <div className={`inputlabel ${className}`}>
-      <label htmlFor={titleId}>
+    <div className={`inputlabel ${className ? className : ""}`}>
+      <input type={type} id={titleId} name={name} onChange={onChange} value={value} required={required} />
+      <label htmlFor={titleId} className={`${value ? "shrink" : ""}`}>
         {capitalize(title)}
       </label>
-      <input type={type} id={titleId} name={name} onChange={onChange} value={value}  />
     </div>
   );
 };
