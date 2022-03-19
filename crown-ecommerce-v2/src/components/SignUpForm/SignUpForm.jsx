@@ -1,6 +1,7 @@
 import { Input } from "/src/components";
 import "./sign-up-form.scss";
 import { useState } from "react";
+import { userRegistration, googleUserAuth } from "../../utils/firebase/firebase";
 
 const defaultFormFields = {
   username: "",
@@ -13,8 +14,42 @@ const SignUpForm = ({ title }) => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { username, email, password, confirmPassword } = formFields;
 
-  const handleSubmit = (e) => {
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Basic validation
+    if (username.length < 4) {
+      alert("Username needs to be at least 4 characters long");
+      return;
+
+    } else if (username.includes(" ")) {
+      alert("Username shouldn't have spaces");
+      return;
+
+    } else if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    // User Authentication
+    try {
+      const { user } = await userRegistration(email, password);
+      user.displayName = username;
+      const userDocRef = await googleUserAuth(user);
+      
+      resetFormFields();
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        alert("Email is already registered");
+      }
+    }
+
+
+    
   };
 
   const handleInputChange = (e) => {
@@ -31,7 +66,7 @@ const SignUpForm = ({ title }) => {
   return (
     <section className="signup">
       <h2 className="signup__title">{title}</h2>
-      <form action="post" onSubmit={(e) => handleSubmit(e)}>
+      <form className="signup__form" onSubmit={handleSubmit}>
         <Input
           title="username"
           type="text"
@@ -64,6 +99,8 @@ const SignUpForm = ({ title }) => {
           onChange={handleInputChange}
           value={ confirmPassword }
         />
+
+        <button className="signup__button" type="submit">Sign up</button>
       </form>
     </section>
   );
