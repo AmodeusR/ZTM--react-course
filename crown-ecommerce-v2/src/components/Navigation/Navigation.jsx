@@ -9,7 +9,7 @@ const Navigation = () => {
       <div className="navbar-crossline">
         <nav className="navbar container">
           <Link to="/" >
-            <img src={logo} alt="Crown logo. Go to homepage." />
+            <img src={logo} alt="Crown logo. Go to homepage." className="navbar__logo" />
           </Link>
           <ul className="navbar__list">
             <li className="navbar__list-item">

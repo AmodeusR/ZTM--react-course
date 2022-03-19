@@ -7,6 +7,15 @@
     border-bottom: 1.5px solid #3344; 
   }
 
+  &__logo {
+    transition: transform 250ms ease-out;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  
   &__list {
     font-size: 1.5rem;
     display: flex;
@@ -16,7 +25,7 @@
     &-item {
       position: relative; 
     }
-
+    
     &-link {
       text-decoration: none;
       color: #334;
@@ -31,7 +40,7 @@
         right: 0;
         top: 93%;
         bottom: 0;
-
+        
         background: #334;
         transition: transform .4s ease;
         transform: scaleX(0);
@@ -42,6 +51,7 @@
         transform: scaleX(1);
         transform-origin: top left;
       }
+
     }
   }
 
