@@ -14,7 +14,7 @@ const SignPage = () => {
   return (
     <div className="container">
       <div className="sections">
-        <SignInForm title="Sing In" />
+        <SignInForm title="Sign In" />
         <SignUpForm title="Sign up" />
       </div>
     </div>
