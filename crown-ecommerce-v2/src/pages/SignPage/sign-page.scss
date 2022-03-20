@@ -1,4 +1,22 @@
 .sections {
   display: flex;
   justify-content: space-around;
+
+  section {
+    flex-grow: 1;
+    max-width: 25rem;
+  }
+
+}
+
+[class*=title] {
+  font-family: "Open Sans";
+  font-size: 2.5rem;
+  text-transform: capitalize;
+}
+
+[class*=form] {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

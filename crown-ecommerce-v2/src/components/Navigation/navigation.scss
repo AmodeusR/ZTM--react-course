@@ -4,7 +4,7 @@
   align-items: center;
 
   &-crossline {
-    border-bottom: 1.5px solid #3344; 
+    border-bottom: 1.5px solid var(--main-color-opc4); 
   }
 
   &__logo {
@@ -28,7 +28,7 @@
     
     &-link {
       text-decoration: none;
-      color: #334;
+      color: var(--main-color);
       transition: color 150ms ease-out;
       padding: .4rem;
       
@@ -41,7 +41,7 @@
         top: 93%;
         bottom: 0;
         
-        background: #334;
+        background: var(--main-color);
         transition: transform .4s ease;
         transform: scaleX(0);
         transform-origin: top right;

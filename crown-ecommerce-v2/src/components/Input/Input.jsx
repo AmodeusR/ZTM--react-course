@@ -17,6 +17,7 @@ const Input = ({ type, title, required = false, className, name, onChange, value
       <label htmlFor={titleId} className={`${value ? "shrink" : ""}`}>
         {capitalize(title)}
       </label>
+      <span className="underline"></span>
     </div>
   );
 };

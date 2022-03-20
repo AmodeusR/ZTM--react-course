@@ -24,9 +24,9 @@ const SignInForm = ({ title }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <div className="buttons" style={{display: "flex", gap: "1rem", width: "100%"}}>
+        <div className="buttons" style={{display: "flex", gap: "1rem"}}>
           <Button title="Sign in to your account" />
-          <Button title="Sign in with Google" />
+          <Button title="Sign in with Google" color="royalblue" />
         </div>
       </form>
     </section>
