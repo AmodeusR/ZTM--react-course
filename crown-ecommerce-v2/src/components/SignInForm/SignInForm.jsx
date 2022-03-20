@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input } from "/src/components";
+import { Input, Button } from "/src/components";
 
 const SignInForm = ({ title }) => {
   const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ const SignInForm = ({ title }) => {
       <h2 className="signin__title">{title}</h2>
       <form className="signin__form">
         <Input
-          title="mail"
+          title="email"
           type="email"
           required
           value={email}
@@ -23,6 +23,11 @@ const SignInForm = ({ title }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+        <div className="buttons" style={{display: "flex", gap: "1rem", width: "100%"}}>
+          <Button title="Sign in to your account" />
+          <Button title="Sign in with Google" />
+        </div>
       </form>
     </section>
   );

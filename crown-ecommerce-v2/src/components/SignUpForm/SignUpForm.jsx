@@ -1,4 +1,4 @@
-import { Input } from "/src/components";
+import { Input, Button } from "/src/components";
 import "./sign-up-form.scss";
 import { useState } from "react";
 import { userRegistration, googleUserAuth } from "../../utils/firebase/firebase";
@@ -100,7 +100,7 @@ const SignUpForm = ({ title }) => {
           value={ confirmPassword }
         />
 
-        <button className="signup__button" type="submit">Sign up</button>
+        <Button title="Sign up now" type="submit" />
       </form>
     </section>
   );
