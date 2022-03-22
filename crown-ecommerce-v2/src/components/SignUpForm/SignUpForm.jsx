@@ -39,7 +39,8 @@ const SignUpForm = ({ title }) => {
     try {
       const { user } = await userRegistration(email, password);
       user.displayName = username;
-      const userDocRef = await googleUserAuth(user);
+      await googleUserAuth(user);
+
       
       resetFormFields();
     } catch (error) {
@@ -66,6 +67,7 @@ const SignUpForm = ({ title }) => {
   return (
     <section className="signup">
       <h2 className="signup__title">{title}</h2>
+      <span className="auth__subtext">Create your account right now!</span>
       <form className="signup__form" onSubmit={handleSubmit}>
         <Input
           title="username"
