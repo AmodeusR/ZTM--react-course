@@ -15,7 +15,8 @@
     background-color 250ms ease,
     color 250ms ease;
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
     background: transparent;
     color: var(--first-btn-color);
@@ -25,7 +26,8 @@
     color: var(--first-btn-color);
     background: var(--second-btn-color);
     
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--second-btn-color);
       background: var(--first-btn-color);
     }
