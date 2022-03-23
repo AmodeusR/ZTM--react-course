@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Input, Button } from "/src/components";
-import { userLogin, signInWithGooglePopup as googleSignIn, googleUserAuth } from "../../utils/firebase/firebase";
+import {
+  userSignIn,
+  signInWithGooglePopup as googleSignIn
+} from "../../utils/firebase/firebase";
 
 const SignInForm = ({ title }) => {
   const [email, setEmail] = useState("");
@@ -9,38 +12,32 @@ const SignInForm = ({ title }) => {
   const resetFormFields = () => {
     setEmail("");
     setPassword("");
-  }
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const userAuth = await userLogin(email, password);
-      console.log(userAuth);
-      
-      // resetFormFields()p
+      const { user } = await userSignIn(email, password);
+
+      resetFormFields();
     } catch (error) {
       console.warn(error.message);
       if (error.code === "auth/user-not-found") {
-        alert("There is no account with this email")
+        alert("There is no account with this email");
       } else if (error.code === "auth/wrong-password") {
         alert("Your password is wrong");
       }
     }
-  }
+  };
 
   const handleSignInWithGoogle = async () => {
-
     try {
-      const { user } =  await googleSignIn();
-      await googleUserAuth(user);
-      
+      const { user } = await googleSignIn();
     } catch (error) {
       console.warn(error);
     }
-
-  }
-
+  };
 
   return (
     <section className="signin">
@@ -62,9 +59,14 @@ const SignInForm = ({ title }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <div className="buttons" style={{display: "flex", gap: "1rem"}}>
+        <div className="buttons" style={{ display: "flex", gap: "1rem" }}>
           <Button title="Sign in to your account" type="submit" />
-          <Button title="Sign in with Google" color="royalblue" type="button" onClick={handleSignInWithGoogle} />
+          <Button
+            title="Sign in with Google"
+            color="royalblue"
+            type="button"
+            onClick={handleSignInWithGoogle}
+          />
         </div>
       </form>
     </section>
