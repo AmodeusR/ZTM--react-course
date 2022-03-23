@@ -1,9 +1,17 @@
-import React from "react";
+import { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-import "./navigation.scss";
+
+import UserContext from "../../contexts/user.context";
 import logo from "/src/assets/crown.svg";
+import "./navigation.scss";
+import { userSignOut } from "../../utils/firebase/firebase";
 
 const Navigation = () => {
+  const { user } = useContext(UserContext);
+
+  const handleSignOut = async () => {
+    await userSignOut();
+  }
   return (
     <>
       <div className="navbar-crossline">
@@ -23,9 +31,12 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="navbar__list-item">
-              <Link className="navbar__list-link" to="/auth">
-                Sign In
-              </Link>
+              { user ?
+                <span className="navbar__list-link" onClick={handleSignOut}>Sign Out</span> :
+                <Link className="navbar__list-link" to="/auth">
+                  Sign In
+                </Link>
+              }
             </li>
           </ul>
         </nav>
