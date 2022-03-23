@@ -1,7 +1,6 @@
-import { Input, Button } from "/src/components";
-import "./sign-up-form.scss";
 import { useState } from "react";
-import { userRegistration, googleUserAuth } from "../../utils/firebase/firebase";
+import { userRegistration, createUserDoc } from "../../utils/firebase/firebase";
+import { Input, Button } from "/src/components";
 
 const defaultFormFields = {
   username: "",
@@ -39,9 +38,8 @@ const SignUpForm = ({ title }) => {
     try {
       const { user } = await userRegistration(email, password);
       user.displayName = username;
-      await googleUserAuth(user);
+      await createUserDoc(user);
 
-      
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
