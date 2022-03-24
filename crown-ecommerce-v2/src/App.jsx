@@ -1,6 +1,7 @@
 import { Home, Authentication, Shop } from "./pages";
 import { Navigation } from "./components";
 import { Routes, Route } from "react-router-dom";
+import { ProductProvider } from "./contexts/product.context";
 
 function App() {
 
@@ -10,7 +11,11 @@ function App() {
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
           <Route path="auth" element={<Authentication />} />
-          <Route path="shop" element={<Shop />} />
+          <Route path="shop" element={
+            <ProductProvider>
+              <Shop />
+            </ProductProvider>
+            } />
         </Route>
       </Routes>
     </>
