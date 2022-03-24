@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductCard } from "/src/components";
+import { ProductCategory } from "/src/components";
 import "./directories.scss";
 
 const Directories = () => {
@@ -34,9 +34,9 @@ const Directories = () => {
   return (
     <main className="directories">
       {categories.map(({ id, title, imageUrl }) => (
-        <ProductCard
+        <ProductCategory
           key={id}
-          productName={title}
+          category={title}
           imgSrc={imageUrl}
           className={title}
         />
