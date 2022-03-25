@@ -20,10 +20,9 @@ export const ProductProvider = ({ children }) => {
         console.warn(error);
       }
     };
-    setProducts(PRODUCTS)
-    // fetchProducts();
+    setProducts(PRODUCTS);
   }, []);
-
+  
   return (
     <ProductContext.Provider
       value={{
