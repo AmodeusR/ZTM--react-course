@@ -1,16 +1,19 @@
 import React from "react";
+import { Button } from "../../components";
 import "./product-card.scss";
 
-const ProductCard = ({ productName, className, imgSrc }) => {
+
+
+const ProductCard = ({ name, price, imgSrc }) => {
+
   return (
-    <div className={`card ${className}`}>
-      <div className="card__background" style={{
-        backgroundImage:`url(${imgSrc})`
-      }} />
-      <div className="card__inner-container">
-        <h2 className="card__title">{productName}</h2>
-        <span>Shop now</span>
+    <div className="product-card">
+      <img className="product-card__image" src={imgSrc} alt={`${name}`} />
+      <div className="product-card__description">
+        <span className="product-card__name">{name}</span>
+        <span className="product-card__price">{price}</span>
       </div>
+      <Button className="product-card__button inverted" title="Add to cart" />
     </div>
   );
 };

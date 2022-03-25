@@ -1,45 +1,49 @@
-.card {
+.product-card {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  max-width: 23rem;
+  margin: 0 auto;
+  gap: 0.5rem;
   position: relative;
-  background-color: #3334;
-  padding: 7rem;
-  border: 2px solid #333;
   overflow: hidden;
-  
-  &__background {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    transition: transform 1s ease;
-    
-  }
-  
-  &__inner-container {
-    min-width: 10rem;
-    background: hsl(0 0% 100% / .8);
-    padding: 1.5rem;
-    font-size: 1.1em;
-    
-    text-align: center;
-    text-transform: uppercase;
-    border: 2px solid #333;
+
+  &__image {
+    max-width: 100%;
+    width: 18rem;
+    height: 23rem;
+    object-fit: cover;
+    transition: opacity 200ms ease;
   }
 
-  &__title {
-    margin-block: 0 1.5rem;
-    line-height: 1;
+  &__description {
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    width: 95%;
+    margin-inline: auto;
+  }
+
+  &__button {
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    bottom: 4rem;
+
+    pointer-events: none;
+    transition: opacity 200ms ease, background-color 250ms ease,
+      color 250ms ease;
+    opacity: 0;
   }
 
   &:hover {
-    cursor: pointer;
-    
-    & .card__background {
-      transform: scale(1.1)!important;
+    .product-card {
+      &__button {
+        opacity: 1;
+        pointer-events: initial;
+      }
+      &__image {
+        opacity: .9;
+      }
     }
   }
-
 }
