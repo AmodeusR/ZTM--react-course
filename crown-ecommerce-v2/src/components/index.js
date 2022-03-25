@@ -6,3 +6,4 @@ export { default as SignUpForm } from "./SignUpForm/SignUpForm";
 export { default as Input } from "./Input/Input";
 export { default as Button } from "./Button/Button";
 export { default as ProductCard } from "./ProductCard/ProductCard";
+export { default as ProductsSection } from "./ProductsSection/ProductsSection";
