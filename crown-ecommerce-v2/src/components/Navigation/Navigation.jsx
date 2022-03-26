@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import UserContext from "../../contexts/user.context";
-import logo from "/src/assets/crown.svg";
+import { ReactComponent as Logo } from "/src/assets/crown.svg";
 import "./navigation.scss";
 import { userSignOut } from "../../utils/firebase/firebase";
 
@@ -17,7 +17,7 @@ const Navigation = () => {
       <div className="navbar-crossline">
         <nav className="navbar container">
           <Link to="/" >
-            <img src={logo} alt="Crown logo. Go to homepage." className="navbar__logo" />
+            <Logo className="navbar__logo" alt="Crown logo. Click to go to homepage." />
           </Link>
           <ul className="navbar__list">
             <li className="navbar__list-item">
