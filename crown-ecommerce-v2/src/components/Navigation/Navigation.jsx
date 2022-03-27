@@ -5,6 +5,7 @@ import UserContext from "../../contexts/user.context";
 import { ReactComponent as Logo } from "/src/assets/crown.svg";
 import "./navigation.scss";
 import { userSignOut } from "../../utils/firebase/firebase";
+import { CartIcon } from "/src/components";
 
 const Navigation = () => {
   const { user } = useContext(UserContext);
@@ -38,6 +39,7 @@ const Navigation = () => {
                 </Link>
               }
             </li>
+              <CartIcon />            
           </ul>
         </nav>
       </div>
