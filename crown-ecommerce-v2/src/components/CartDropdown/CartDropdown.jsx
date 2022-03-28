@@ -1,19 +1,30 @@
-import React from "react";
-import { Button } from "/src/components";
+import { useContext } from "react";
+import { Button, CartItem } from "/src/components";
+import CartContext from "../../contexts/cart.context";
 
 import "./cart-dropdown.scss";
 
 const CartDropdown = () => {
+  const { isCartOpen, cartItems } = useContext(CartContext);
+
   return (
-    <div className="cart-dropdown">
-      <div className="cart-dropdown__items">
-        <div className="item"></div>
-        <div className="item"></div>
-        <div className="item"></div>
-        <div className="item"></div>
-      </div>
-      <Button title="Checkout" />
-    </div>
+    <>
+      {isCartOpen && (
+        <div className="cart-dropdown">
+          <div className="cart-dropdown__menu">
+            {!!cartItems ||
+              <span className="menu__empty-message">Your cart is empty</span>
+            }
+            { true &&
+              cartItems.map(({ id, name, price, imageUrl, quantity }) => (
+                <CartItem key={id} title={name} price={price} imgSrc={imageUrl} quantity={quantity} />
+              ))
+            }
+          </div>
+          <Button title="Checkout" />
+        </div>
+      )}
+    </>
   );
 };
 

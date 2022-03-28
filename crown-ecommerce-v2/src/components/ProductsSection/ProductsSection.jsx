@@ -1,23 +1,22 @@
-import React from "react";
+import { useContext } from "react";
 import { ProductCard } from "/src/components";
 
 import "./products-section.scss";
+import CartContext from "../../contexts/cart.context";
 
-const formatter = new Intl.NumberFormat("en-us", {
-  style: "currency",
-  currency:"USD"
-});
+
 
 const ProductsSection = ({ title, products }) => {
+  const { addItemToCart } = useContext(CartContext);
+
   return (
     <section className="products-section">
       <div className="products-section__list">
-        {products.map(({ id, name, price, imageUrl }) => (
+        {products.map((product) => (
           <ProductCard
-            key={id}
-            name={name}
-            price={formatter.format(price)}
-            imgSrc={imageUrl}
+            product={product}
+            key={product.id}
+            handleItemAdditionToCart={addItemToCart}
           />
         ))}
       </div>
