@@ -92,6 +92,7 @@ const SignUpForm = ({ title }) => {
           required
           onChange={handleInputChange}
           value={ password }
+          autoComplete="new-password"
         />
         <Input
           title="Confirm password"
@@ -100,6 +101,7 @@ const SignUpForm = ({ title }) => {
           required
           onChange={handleInputChange}
           value={ confirmPassword }
+          autoComplete="new-password"
         />
 
         <Button title="Sign up now" type="submit" />
