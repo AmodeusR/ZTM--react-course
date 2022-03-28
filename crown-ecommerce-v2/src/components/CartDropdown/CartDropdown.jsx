@@ -7,15 +7,16 @@ import "./cart-dropdown.scss";
 const CartDropdown = () => {
   const { isCartOpen, cartItems } = useContext(CartContext);
 
+
   return (
     <>
       {isCartOpen && (
         <div className="cart-dropdown">
           <div className="cart-dropdown__menu">
-            {!!cartItems ||
+            {!cartItems.length &&
               <span className="menu__empty-message">Your cart is empty</span>
             }
-            { true &&
+            { cartItems &&
               cartItems.map(({ id, name, price, imageUrl, quantity }) => (
                 <CartItem key={id} title={name} price={price} imgSrc={imageUrl} quantity={quantity} />
               ))
