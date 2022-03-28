@@ -7,10 +7,12 @@ import "./cart-icon.scss";
 const CartIcon = () => {
   const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
 
+  const totalItemsInCart = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <li className="cart-icon" onClick={() => setIsCartOpen(!isCartOpen)}>
       <BagIcon className="cart-icon__icon" />
-      <span className="cart-icon__count">{cartItems.length}</span>
+      <span className="cart-icon__count">{totalItemsInCart}</span>
     </li>
   );
 };
