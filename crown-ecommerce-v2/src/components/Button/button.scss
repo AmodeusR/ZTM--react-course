@@ -26,8 +26,7 @@
     color: var(--first-btn-color);
     background: var(--second-btn-color);
     
-    &:hover,
-    &:focus {
+    &:hover {
       color: var(--second-btn-color);
       background: var(--first-btn-color);
     }
