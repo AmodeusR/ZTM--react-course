@@ -74,6 +74,7 @@ const SignUpForm = ({ title }) => {
           required
           onChange={handleInputChange}
           value={ username }
+          autoComplete="username"
         />
         <Input
           title="email"
@@ -82,6 +83,7 @@ const SignUpForm = ({ title }) => {
           required
           onChange={handleInputChange}
           value={ email }
+          autoComplete="email"
         />
         <Input
           title="password"
