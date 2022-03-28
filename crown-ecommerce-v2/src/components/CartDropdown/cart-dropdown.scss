@@ -5,7 +5,7 @@
   gap: 1rem;
   
   position: absolute;
-  width: 17rem;
+  width: 18rem;
   min-height: 18rem;
   padding: 1rem;
   border: 2px solid var(--main-color);
@@ -15,22 +15,36 @@
   
   z-index: 5;
   
-  &__items {
-    overflow-y: scroll;
-    height: 14em;
-    
-  }
+  &__menu {
 
-  &.hide {
-    display: none;
+    overflow-y: scroll;
+    height: 16em;
+
+    &::-webkit-scrollbar {
+      width: .5em;
+      right: 1rem;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      position: absolute;
+      background-color: var(--main-color-opc4);
+      border-radius: 1rem;
+    }
   }
 }
 
-.item {
-  background: rebeccapurple;
-  height: 5rem;
+.menu__empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 
-  &:nth-child(odd) {
-    background: olivedrab;
-  }
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.item {
+  width: 100%;
+  height: 5rem;
+  flex-shrink: 0;
 }
