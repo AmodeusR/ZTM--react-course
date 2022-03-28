@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-
-import UserContext from "../../contexts/user.context";
-import { ReactComponent as Logo } from "/src/assets/crown.svg";
-import "./navigation.scss";
 import { userSignOut } from "../../utils/firebase/firebase";
 import { CartIcon, CartDropdown } from "/src/components";
+
+import UserContext from "../../contexts/user.context";
+
+import { ReactComponent as Logo } from "/src/assets/crown.svg";
+import "./navigation.scss";
 
 const Navigation = () => {
   const { user } = useContext(UserContext);
