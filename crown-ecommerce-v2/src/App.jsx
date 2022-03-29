@@ -1,9 +1,10 @@
-import { Home, Authentication, Shop, Checkout } from "./pages";
+import { Home, Authentication, Shop, Checkout, PageNotFound } from "./pages";
 import { Navigation } from "./components";
 import { Routes, Route } from "react-router-dom";
 import { ProductProvider } from "./contexts/product.context";
 
-function App() {
+const App = () => {
+
   return (
     <>
       <Routes>
@@ -19,6 +20,8 @@ function App() {
             }
           />
           <Route path="checkout" element={<Checkout />} />
+
+          <Route path="*" element={<PageNotFound /> } />
         </Route>
       </Routes>
     </>
