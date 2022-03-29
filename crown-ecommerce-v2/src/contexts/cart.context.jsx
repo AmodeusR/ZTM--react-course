@@ -4,11 +4,13 @@ const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
   cartItems: [],
-  addItemToCart: () => {}
+  addItemToCart: () => {},
+  setCartItems: () => {}
 });
 
 const handleAddition = (itemToAdd, cartItems) => {
-  const itemIsInCart = cartItems.find(cartItem => cartItem.id === itemToAdd.id )
+  const itemIsInCart = cartItems.find(cartItem => cartItem.id === itemToAdd.id );
+
   if (itemIsInCart) {
     const updatedCart = cartItems.reduce((acc, item) => {
       if (item.id === itemIsInCart.id) {
@@ -41,7 +43,8 @@ export const CartProvider = ({ children }) => {
         isCartOpen,
         setIsCartOpen,
         addItemToCart,
-        cartItems
+        cartItems,
+        setCartItems
       }}
     >
       {children}
