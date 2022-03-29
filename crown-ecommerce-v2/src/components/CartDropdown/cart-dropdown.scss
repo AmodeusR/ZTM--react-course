@@ -1,3 +1,5 @@
+@use "/src/styles/mixins" as mix;
+
 .cart-dropdown {
   display: flex;
   flex-direction: column;
@@ -20,16 +22,7 @@
     overflow-y: scroll;
     height: 16em;
 
-    &::-webkit-scrollbar {
-      width: .5em;
-      right: 1rem;
-    }
-    
-    &::-webkit-scrollbar-thumb {
-      position: absolute;
-      background-color: var(--main-color-opc4);
-      border-radius: 1rem;
-    }
+    @include mix.styled-scrollbar;
   }
 }
 

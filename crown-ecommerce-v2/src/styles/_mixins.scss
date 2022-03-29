@@ -1,0 +1,13 @@
+@mixin styled-scrollbar {
+
+  &::-webkit-scrollbar {
+    width: .5em;
+    right: 1rem;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    position: absolute;
+    background-color: var(--main-color-opc4);
+    border-radius: 1rem;
+  }
+}
