@@ -10,3 +10,4 @@ export { default as ProductsSection } from "./ProductsSection/ProductsSection";
 export { default as CartIcon } from "./CartIcon/CartIcon";
 export { default as CartDropdown } from "./CartDropdown/CartDropdown";
 export { default as CartItem } from "./CartItem/CartItem";
+export { default as CheckoutCard } from "./CheckoutCard/CheckoutCard";
