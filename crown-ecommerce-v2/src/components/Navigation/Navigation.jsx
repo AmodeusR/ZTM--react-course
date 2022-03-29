@@ -4,16 +4,19 @@ import { userSignOut } from "../../utils/firebase/firebase";
 import { CartIcon, CartDropdown } from "/src/components";
 
 import UserContext from "../../contexts/user.context";
+import CartContext from "../../contexts/cart.context";
 
 import { ReactComponent as Logo } from "/src/assets/crown.svg";
 import "./navigation.scss";
 
 const Navigation = () => {
   const { user } = useContext(UserContext);
+  const { setIsCartOpen } = useContext(CartContext);
 
   const handleSignOut = async () => {
     await userSignOut();
   }
+
   return (
     <>
       <header className="header">
@@ -24,12 +27,17 @@ const Navigation = () => {
             </Link>
             <ul className="navbar__list">
               <li className="navbar__list-item">
+                <Link className="navbar__list-link" to="/">
+                  Home
+                </Link>
+              </li>
+              <li className="navbar__list-item">
                 <Link className="navbar__list-link" to="/shop">
                   Shop
                 </Link>
               </li>
               <li className="navbar__list-item">
-                <Link className="navbar__list-link" to="">
+                <Link className="navbar__list-link" to="/about">
                   About
                 </Link>
               </li>
@@ -41,10 +49,12 @@ const Navigation = () => {
                   </Link>
                 }
               </li>
-                <CartIcon />
             </ul>
+                <div tabIndex="23" className="cart-container" onBlur={() => setIsCartOpen(false)}>
+                  <CartIcon />
+                  <CartDropdown />
+                </div>
           </nav>
-          <CartDropdown />
         </div>
       </header>
       <Outlet />
