@@ -3,10 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding-inline: 1rem;
-
-  &-crossline {
-    border-bottom: 1.5px solid var(--main-color-opc4); 
-  }
+  // background-color: white;
+  
 
   &__logo {
     transition: transform 250ms ease-out;
@@ -59,10 +57,6 @@
   }
 
   @media (max-width: 45em) {
-    header {
-      height: 5rem;
-    }
-
     .navbar {
 
       &__list {
@@ -71,4 +65,12 @@
     }
     
   }
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+  border-bottom: 1.5px solid var(--main-color-opc4); 
 }
