@@ -1,5 +1,10 @@
 .products-section {
 
+  &__title {
+    margin-block: 3rem 2rem;
+    font-size: 2rem;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));

@@ -11,6 +11,7 @@ const ProductsSection = ({ title, products }) => {
 
   return (
     <section className="products-section">
+      <h2 className="products-section__title">{title}</h2>
       <div className="products-section__list">
         {products.map((product) => (
           <ProductCard
