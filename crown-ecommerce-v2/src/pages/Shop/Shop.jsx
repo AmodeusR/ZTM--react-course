@@ -7,7 +7,7 @@ const Shop = () => {
 
   return (
     <main className="container" style={{marginTop: "2rem"}}>
-      <h1>Shop</h1>
+      <h1 className="page-title">Shop</h1>
       {categories.map(({ title, items }) => <ProductsSection key={title} title={title} products={items} /> )}
     </main>
   );
