@@ -1,7 +1,7 @@
 import { Home, Authentication, Shop, Checkout, PageNotFound } from "./pages";
 import { Navigation } from "./components";
 import { Routes, Route } from "react-router-dom";
-import { ProductProvider } from "./contexts/product.context";
+import { CategoryProvider } from "./contexts/category.context";
 
 const App = () => {
 
@@ -14,9 +14,9 @@ const App = () => {
           <Route
             path="shop"
             element={
-              <ProductProvider>
+              <CategoryProvider>
                 <Shop />
-              </ProductProvider>
+              </CategoryProvider>
             }
           />
           <Route path="checkout" element={<Checkout />} />

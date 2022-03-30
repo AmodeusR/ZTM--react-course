@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import ProductContext from "../../contexts/product.context";
+import CategoryContext from "../../contexts/category.context";
 import { ProductsSection } from "../../components";
 
 const Shop = () => {
-  const { products } = useContext(ProductContext);
+  const { categories } = useContext(CategoryContext);
 
   return (
-    <main className="container">
+    <main className="container" style={{marginTop: "2rem"}}>
       <h1>Shop</h1>
-      <ProductsSection products={products} />
+      {categories.map(({ title, items }) => <ProductsSection key={title} title={title} products={items} /> )}
     </main>
   );
 };

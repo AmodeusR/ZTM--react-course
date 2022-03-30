@@ -7,9 +7,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDhr4PhNv5rIT3TROWW-1UtVscSa-GT9uE",
@@ -26,15 +35,14 @@ const db = getFirestore();
 export const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
 
-export const signInWithGooglePopup = () => (
-  signInWithPopup(auth, googleProvider));
-
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
 
 export const createUserDoc = async (userAuthData) => {
   if (!userAuthData) {
     console.error("User auth data needed");
     return;
-  } 
+  }
 
   const userDocRef = doc(db, "users", userAuthData.uid);
 
@@ -63,18 +71,48 @@ export const userRegistration = async (email, password) => {
   if (!email || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
-}
+};
 
 export const userSignIn = async (email, password) => {
   if (!email || !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
-}
+};
 
 export const userSignOut = async () => {
   return await signOut(auth);
-}
+};
 
 export const onAuthStateChangedListener = async (callback) => {
-  return await onAuthStateChanged(auth, callback);
+  return onAuthStateChanged(auth, callback);
+};
+
+
+export const addCollectionAndDocuments = async (collectionKey, dataToAdd) => {
+  const collectionRef = collection(db, collectionKey);
+  console.log("started");
+
+  const batch = writeBatch(db);
+
+  dataToAdd.forEach(item => {
+    const docRef = doc(collectionRef, item.title.toLowerCase());
+    batch.set(docRef, item);
+  });
+
+  await batch.commit();
+
+  console.log("done");
+}
+
+export const fetchData = async () => {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+
+  const categoryMap = querySnapshot.docs.reduce((acc, snapshot) => {
+    return [...acc, snapshot.data()];
+  }, []);
+
+  return categoryMap;
 }
