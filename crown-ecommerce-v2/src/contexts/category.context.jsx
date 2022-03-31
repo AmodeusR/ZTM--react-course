@@ -9,7 +9,7 @@ const CategoryContext = createContext({
 });
 
 export const CategoryProvider = ({ children }) => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState({});
 
   useEffect(() => {
     const fetchCategories = async () => {
