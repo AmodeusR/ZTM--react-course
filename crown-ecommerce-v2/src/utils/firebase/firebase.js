@@ -111,7 +111,8 @@ export const fetchData = async () => {
   const querySnapshot = await getDocs(q);
 
   const categoryMap = querySnapshot.docs.reduce((acc, snapshot) => {
-    return [...acc, snapshot.data()];
+    const category = snapshot.data().title;
+    return {...acc, [category]: snapshot.data()};
   }, []);
 
   return categoryMap;
