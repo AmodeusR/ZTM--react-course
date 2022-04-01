@@ -1,19 +1,20 @@
-import { useContext } from "react";
+import { useEffect } from "react";
+import { Routes, Route} from "react-router-dom";
 import CategoryContext from "../../contexts/category.context";
+import { CategoriesSection, CategorySection } from "../../pages";
 import { ProductsSection } from "../../components";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 const Shop = () => {
-  const { categories } = useContext(CategoryContext);
-  const sections = Object.keys(categories);
 
   return (
     <main className="container" style={{marginTop: "2rem"}}>
       <h1 className="page-title">Shop</h1>
-      {sections.map(section => {
-        const { title, items } = categories[section];
-      
-        return <ProductsSection key={title} title={title} products={items} />
-      })}
+      <Routes>
+        <Route index element={<CategoriesSection />} />
+        <Route path=":category" element={<CategorySection />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </main>
   );
 };
