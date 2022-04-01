@@ -12,7 +12,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="auth" element={<Authentication />} />
           <Route
-            path="shop"
+            path="shop/*"
             element={
               <CategoryProvider>
                 <Shop />
