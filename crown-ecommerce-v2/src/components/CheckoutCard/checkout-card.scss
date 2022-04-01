@@ -31,6 +31,11 @@
       color: crimson;
     }
   }
+
+  @media (max-width: 40em) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 .arrow {
