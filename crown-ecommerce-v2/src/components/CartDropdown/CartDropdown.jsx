@@ -28,7 +28,7 @@ const CartDropdown = () => {
               ))
             }
           </div>
-            <Button title="Checkout" onMouseDown={handleLinkToCheckout} />
+            <Button title="Checkout" onMouseDown={handleLinkToCheckout} className={!cartItems.length ? "disabled" : ""} />
         </div>
       )}
     </>
