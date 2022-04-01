@@ -1,4 +1,3 @@
-import React from "react";
 import "./input.scss";
 import { v4 as uuidv4 } from "uuid";
 

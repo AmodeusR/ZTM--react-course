@@ -1,4 +1,4 @@
-import React from "react";
+
 import { signInWithGooglePopup as googleSignIn, createUserDoc } from "/src/utils/firebase/firebase";
 import { SignUpForm, SignInForm } from "../../components";
 import "./auth.scss";

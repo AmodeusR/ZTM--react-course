@@ -1,4 +1,3 @@
-import React from "react";
 import currencyFormatter from "../../utils/currencyFormatter";
 
 import "./cart-item.scss";

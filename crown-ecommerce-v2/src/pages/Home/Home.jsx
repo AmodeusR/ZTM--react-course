@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Directories } from "/src/components";
 
 const Home = () => {
