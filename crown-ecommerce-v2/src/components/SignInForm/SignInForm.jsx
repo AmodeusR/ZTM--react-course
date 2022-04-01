@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Input, Button } from "/src/components";
 import {
   userSignIn,
@@ -9,18 +10,20 @@ const SignInForm = ({ title }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const resetFormFields = () => {
-    setEmail("");
-    setPassword("");
-  };
+  const navigate = useNavigate();
+
+  // const resetFormFields = () => {
+  //   setEmail("");
+  //   setPassword("");
+  // };
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const { user } = await userSignIn(email, password);
+      await userSignIn(email, password);
 
-      resetFormFields();
+      navigate("/");
     } catch (error) {
       console.warn(error.message);
       if (error.code === "auth/user-not-found") {
@@ -33,7 +36,9 @@ const SignInForm = ({ title }) => {
 
   const handleSignInWithGoogle = async () => {
     try {
-      const { user } = await googleSignIn();
+      await googleSignIn();
+
+      navigate("/");
     } catch (error) {
       console.warn(error);
     }

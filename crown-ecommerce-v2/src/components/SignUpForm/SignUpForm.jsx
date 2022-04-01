@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { userRegistration, createUserDoc } from "../../utils/firebase/firebase";
 import { Input, Button } from "/src/components";
 
@@ -13,9 +14,7 @@ const SignUpForm = ({ title }) => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { username, email, password, confirmPassword } = formFields;
 
-  const resetFormFields = () => {
-    setFormFields(defaultFormFields);
-  }
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +39,7 @@ const SignUpForm = ({ title }) => {
       user.displayName = username;
       await createUserDoc(user);
 
-      resetFormFields();
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Email is already registered");
