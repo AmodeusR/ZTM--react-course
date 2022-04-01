@@ -2,10 +2,15 @@
   display: flex;
   justify-content: center;
   position: relative;
-  background-color: #3334;
+  background-color: var(--main-color-opc4);
   padding: 7rem;
-  border: 2px solid #333;
+  border: 2px solid var(--main-color);
   overflow: hidden;
+
+  &__link {
+    color: var(--main-color);
+    text-decoration: none;
+  }
   
   &__background {
     position: absolute;
