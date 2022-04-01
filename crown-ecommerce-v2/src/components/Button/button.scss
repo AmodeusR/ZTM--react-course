@@ -31,4 +31,12 @@
       background: var(--first-btn-color);
     }
   }
+
+  &.disabled {
+    --first-btn-color: hsl(240, 5%, 33%);
+    pointer-events: none;
+    background: var(--first-btn-color);
+    outline-color: var(--first-btn-color);
+    color: #eee;
+  }
 }
