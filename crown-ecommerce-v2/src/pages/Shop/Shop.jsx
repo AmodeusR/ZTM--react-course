@@ -1,8 +1,5 @@
-import { useEffect } from "react";
-import { Routes, Route} from "react-router-dom";
-import CategoryContext from "../../contexts/category.context";
+import { Routes, Route } from "react-router-dom";
 import { CategoriesSection, CategorySection } from "../../pages";
-import { ProductsSection } from "../../components";
 import PageNotFound from "../PageNotFound/PageNotFound";
 
 const Shop = () => {
