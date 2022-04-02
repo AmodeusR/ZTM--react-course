@@ -39,11 +39,6 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="navbar__list-item">
-              <Link className="navbar__list-link" to="/about">
-                About
-              </Link>
-            </li>
-            <li className="navbar__list-item">
               {user ? (
                 <span className="navbar__list-link" onClick={handleSignOut}>
                   Sign Out
